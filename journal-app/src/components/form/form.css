@@ -1,0 +1,13 @@
+.form {
+    background: yellow;
+}
+
+.field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.field label {
+    padding-right: 1rem;
+}
