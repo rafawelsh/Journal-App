@@ -8,9 +8,9 @@ The goal of this project is to create a journaling app that is connected to a SQ
 
 # Action Items Required
 
-* Create POST request to add a new Journal Entry
 * Add Auth0 to authentic users
 * Style the app according to Chingu template
+* Create a PUT request to edit Journal Entry
 
 # List of Completed Tasks
 
@@ -19,4 +19,6 @@ The goal of this project is to create a journaling app that is connected to a SQ
 * Create Api.js to handle requests to database
 * Started React app
 * Created GET request to read all Journal entries
+* Created POST request to add a new Journal Entry
+* Created DELETE request to remove Journal Entryu
 

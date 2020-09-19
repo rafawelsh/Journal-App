@@ -10,13 +10,13 @@ const apiRouter = require('./api');
 
 const app = express();
 
-app.use('/api', apiRouter);
-
 app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 app.use(errorhandler());
+
+app.use('/api', apiRouter);
 
 const port = 5000;
 
