@@ -7,12 +7,4 @@ db.serialize(() => {
         title TEXT NOT NULL,
         body TEXT NOT NULL);`
     );
-    db.run(`CREATE IF NOT EXISTS User (
-        id INTEGER PRIMARY KEY,
-        first_name TEXT NOT NULL,
-        last_name TEXT NOT NULL,
-        email TEXT NOT NULL,
-        password TEXT NOT NULL,
-        created_at TEXT NOT NULL);`
-    )
 });

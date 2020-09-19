@@ -11,26 +11,31 @@ apiRouter.get('/journals', (req, res) => {
                 res.sendStatus(404);
             } else {
                 res.status(200).json({ journals })
+                console.log('GET WORKING')
             }
         });
 });
 
-apiRouter.post('/journal', (req, res, next) => {
-    const title = req.body.journal.title;
-    const body = req.body.journal.body;
-    if(!title || !body) {
+apiRouter.post('/journals', (req, res, next) => {
+    console.log('API WORKING')
+    console.log(body, req.body)
+    const title = req.body.title;
+    const body = req.body.body;
+    if (!title || !body) {
         return res.sendStatus(400);
     }
     db.run(`INSERT INTO Journal (title, body) VALUES ($title, $body)`,
-    {
-        $title: title,
-        $body: body
-    }), function(err) {
-        if(err) {
-            next(err)
-        } else {
-            console.log('Sucessful!')
-        }
-    }
+        {
+            $title: title,
+            $body: body
+        }, function (err) {
+            if (err) {
+                CONSOLE.LOG(err)
+                next(err)
+            } else {
+                res.status(201).json({ journals })
+            }
+        })
 })
+
 module.exports = apiRouter;

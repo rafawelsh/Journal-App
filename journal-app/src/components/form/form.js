@@ -1,38 +1,40 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import { Button, Form, TextArea } from 'semantic-ui-react'
 import './form.css'
 
 export default function JournalForm() { 
-    const [formSubmission, setFormSubmission] = useState({});
+    const [formSubmission, setFormSubmission] = useState({
+        title: '',
+        body: ''
+    });
  
     const handleChange = (event) => {
+        //this updates each time text is typed on the form fields
         setFormSubmission({...formSubmission, [event.target.name]: event.target.value})
     };
 
     const handleSubmit = (e) => {
+        console.log(formSubmission)
         e.preventDefault()
-        console.log(e)
-    }
-    useEffect(() => {
         axios.post('/api/journals', formSubmission)
             .then(res => {
                 setFormSubmission(res.data)
                 console.log(res);
             })
             .catch(err => {
-                console.log(err)
+                console.log(err.response)
             })
-    });
+    };
 
     return (
         <div>
             <Form onSubmit={handleSubmit}>
-                <Form.Field class="input-field">
+                <Form.Field className="input-field">
                     <label>Title</label>
                     <input type="text" name="title" value={formSubmission.title} onChange={handleChange} required/>
                 </Form.Field>
-                <Form.Field class="input-field">
+                <Form.Field className="input-field">
                     <label>Body</label>
                     <TextArea type="text" name="body" value={formSubmission.body} onChange={handleChange} required />
                 </Form.Field>
