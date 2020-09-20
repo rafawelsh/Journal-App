@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Journals from './components/journalEntries/journalEntries';
+import JournalsList from './components/journalsList/journalsList';
 import JournalForm from './components/form/form';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <h1>Enter Your Journal Entries Below</h1>
         <JournalForm />
-        <Journals />
+        <JournalsList />
       </header>
     </div>
   );

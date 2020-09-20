@@ -16,7 +16,7 @@ export default function JournalForm() {
 
     const handleSubmit = (e) => {
         console.log(formSubmission)
-        e.preventDefault()
+       
         axios.post('/api/journals', formSubmission)
             .then(res => {
                 setFormSubmission(res.data)
@@ -27,6 +27,7 @@ export default function JournalForm() {
             })
     };
 
+  
     return (
         <div>
             <Form onSubmit={handleSubmit}>

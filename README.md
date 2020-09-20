@@ -10,15 +10,17 @@ The goal of this project is to create a journaling app that is connected to a SQ
 
 * Add Auth0 to authentic users
 * Style the app according to Chingu template
-* Create a PUT request to edit Journal Entry
+* Have page re-render after PUT, POST, DELETE requests
 
 # List of Completed Tasks
 
-* Start a Database with SQL
-* Start Express App
-* Create Api.js to handle requests to database
+* Started a Database with SQL
+* Started Express App
+* Created Api.js to handle requests to database
 * Started React app
 * Created GET request to read all Journal entries
 * Created POST request to add a new Journal Entry
-* Created DELETE request to remove Journal Entryu
+* Created DELETE request to remove Journal Entry
+* Create a PUT request to edit Journal Entry
+* Refactored files to render editing panel on entries
 

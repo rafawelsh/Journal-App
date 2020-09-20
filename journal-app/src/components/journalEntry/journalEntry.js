@@ -1,38 +1,33 @@
-import React, {useState, useEffect} from 'react';
-import './journalEntries.css';
+import React from 'react';
 import axios from 'axios';
-import { Card, Button } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react';
+import EditableJournalEntry from '../editableJournalEntry/editableJournalEntry';
 
-export default function Journals() {
-    const [journals, setJournals] = useState([]);
 
-    useEffect(() => {
-        axios.get('/api/journals')
-            .then(res => {
-                console.log(res.data.journals)
-                setJournals(res.data.journals)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }, []);
+export default function JournalEntry({ journal}) {
+    const [isEditing, setIsEditing] = React.useState(false);
 
     const deleteJounal = (e, journal) => {
-        console.log(`BUTTON WORKS: ${e}`)
-        console.log(journal);
+        console.log(`DELETING: ${journal.title}`)
         axios.delete(`/api/journals/${journal.id}`)
             .then(res => res.data)
-            .catch((error) => {                
+            .catch((error) => {
                 throw error.response.data
             })
     }
 
+    const onClickEdit = (e, journal) => {
+        console.log('GOING TO EDITS')
+        console.log(`BUTTON WORKS: ${journal.id}`)
+        setIsEditing(!isEditing)
+    }
+
+
     return (
         <div>
-        <h2>Journals</h2>
-    
-        <ul>
-        {journals.map(journal => (
+            { isEditing ? (
+                    <EditableJournalEntry journal={journal}/>
+                ) : (
             <li key={journal.id}>
                 <Card>
                     <Card.Content>
@@ -46,19 +41,17 @@ export default function Journals() {
                     </Card.Content>
                     <Card.Content extra>
                         <div className='ui two buttons'>
-                        <Button inverted color='blue'>
+                            <Button onClick={e => onClickEdit(e, journal)} inverted color='blue'>
                             Edit
                         </Button>
-                            <Button inverted color='red' onClick={e => deleteJounal(e, journal)}>
+                            <Button onClick={e => deleteJounal(e, journal)} inverted color='red'>
                             Delete
-                        </Button>
+                        </Button> 
                         </div>
                     </Card.Content>
                 </Card>
             </li>
-            ))
-        } 
-            </ul>
-        </div>
-    );
-};
+        )}
+    </div>
+    )
+}
