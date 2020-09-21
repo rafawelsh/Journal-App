@@ -29,18 +29,18 @@ export default function JournalForm() {
 
   
     return (
-        <div>
+        <div className="form-area">
             <Form onSubmit={handleSubmit}>
-                <Form.Field className="input-field">
-                    <label>Title</label>
+                <Form.Field>
+                    <label>Title:</label>
                     <input type="text" name="title" value={formSubmission.title} onChange={handleChange} required/>
                 </Form.Field>
                 <Form.Field className="input-field">
-                    <label>Body</label>
+                    <label>Body:</label>
                     <TextArea type="text" name="body" value={formSubmission.body} onChange={handleChange} required />
                 </Form.Field>
-
-                <Button type='submit'>Submit</Button>
+                <p>Use the form to create a post. Make sure you fill the required title and body fields and then press submit.</p>
+                <Button color="blue" type='submit'>Submit</Button>
             </Form>
         </div>
     )

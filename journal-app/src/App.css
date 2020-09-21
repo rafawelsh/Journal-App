@@ -1,17 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .App {
-  background-color: #e4e9f1;
+  background-color: #fcfcfc;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .App-header {
   min-height: 100vh;
-  width: 85%;
+  width: 95%;
   color: rgb(30, 30, 30);
-  border: 3px solid red;
+  padding: 2rem;
 }
 
+.App-header span {
+  color: gray;
+}
 
+.form-list {
+  padding-top: 4rem;
+}

@@ -1,13 +1,11 @@
-.form {
-    /* background: yellow; */
+.form-area {
+    padding: 1rem 0 2rem 0;
 }
 
-.field {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.ui.form .field>label {
+    padding-bottom: 0.5rem;
 }
 
-.field label {
-    padding-right: 1rem;
+.form p {
+    color: gray;
 }

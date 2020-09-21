@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Enter Your Journal Entries Below</h1>
+        <h1>Digital Journal <span>| Create A Note</span></h1>
         <JournalForm />
         <JournalsList />
       </header>

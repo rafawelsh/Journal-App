@@ -21,13 +21,14 @@ export default function JournalsList() {
 
     return (
                 <div>
-                    <h2>Journal Entries</h2>
+                    
                     <ul>
                     {journals.map(journal => (
+                        <li key={journal.id}>
                         <JournalEntry 
-                            key={journal.id}
                             journal={journal}
                         />
+                        </li>
                     ))}
                     </ul>
                 </div>
