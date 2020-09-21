@@ -9,7 +9,6 @@ The goal of this project is to create a journaling app that is connected to a SQ
 # Action Items Required
 
 * Add Auth0 to authentic users
-* Style the app according to Chingu template
 * Have page re-render after PUT, POST, DELETE requests
 
 # List of Completed Tasks
@@ -23,4 +22,5 @@ The goal of this project is to create a journaling app that is connected to a SQ
 * Created DELETE request to remove Journal Entry
 * Create a PUT request to edit Journal Entry
 * Refactored files to render editing panel on entries
+* Style the app according to Chingu template
 
