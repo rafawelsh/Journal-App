@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import 'semantic-ui-css/semantic.min.css'
+import 'semantic-ui-css/semantic.min.css';
+import Auth0ProviderWithHistory from './auth0-provider-with-history';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Router>
+    <Auth0ProviderWithHistory>
     <App />
-  </React.StrictMode>,
+    </Auth0ProviderWithHistory>
+  </Router>,
   document.getElementById('root')
 );
 
