@@ -8,7 +8,11 @@ export default function JournalsList() {
     const [journals, setJournals] = useState([]);
 
     useEffect(() => {
-        axios.get('/api/journals')
+        getJournals()
+    }, []);
+    
+    async function getJournals() {
+        let data = await axios.get('/api/journals')
             .then(res => {
                 console.log(res.data.journals)
                 setJournals(res.data.journals)
@@ -16,8 +20,17 @@ export default function JournalsList() {
             .catch(err => {
                 console.log(err)
             })
-    }, []);
-    
+    }
+
+    async function deleteJounal (e, journal) {
+        console.log(`DELETING: ${journal.title}`)
+        let data = axios.delete(`/api/journals/${journal.id}`)
+            .then(({data}) => data)
+            .catch((error) => {
+                throw error.response.data
+            })
+        getJournals();
+    }
 
     return (
                 <div>
@@ -27,6 +40,7 @@ export default function JournalsList() {
                         <li key={journal.id}>
                         <JournalEntry 
                             journal={journal}
+                            deleteJournal={deleteJounal}
                         />
                         </li>
                     ))}

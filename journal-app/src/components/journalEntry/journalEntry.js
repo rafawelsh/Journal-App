@@ -5,17 +5,8 @@ import EditableJournalEntry from '../editableJournalEntry/editableJournalEntry';
 import './journalEntry.css'
 
 
-export default function JournalEntry({ journal}) {
+export default function JournalEntry({ journal, deleteJournal}) {
     const [isEditing, setIsEditing] = React.useState(false);
-
-    const deleteJounal = (e, journal) => {
-        console.log(`DELETING: ${journal.title}`)
-        axios.delete(`/api/journals/${journal.id}`)
-            .then(res => res.data)
-            .catch((error) => {
-                throw error.response.data
-            })
-    }
 
     const onClickEdit = (e, journal) => {
         console.log('GOING TO EDITS')
@@ -42,7 +33,7 @@ export default function JournalEntry({ journal}) {
                                     <Button onClick={e => onClickEdit(e, journal)} basic color="blue">
                                         Edit
                                     </Button>
-                                    <Button onClick={e => deleteJounal(e, journal)} basic color='red'>
+                                    <Button onClick={e => deleteJournal(e, journal)} basic color='red'>
                                         Delete
                                     </Button> 
                                 </div>
