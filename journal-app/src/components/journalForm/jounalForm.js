@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import { Button, Form, TextArea } from 'semantic-ui-react'
-import './form.css'
+import './journalForm.css'
 
-export default function JournalForm() { 
+export default function JournalForm({getJournals}) { 
     const [formSubmission, setFormSubmission] = useState({
         title: '',
         body: ''
@@ -21,10 +21,15 @@ export default function JournalForm() {
             .then(res => {
                 setFormSubmission(res.data)
                 console.log(res);
+                setFormSubmission({
+                    title: '',
+                    body: ''
+                })
             })
             .catch(err => {
                 console.log(err.response)
             })
+            getJournals();
     };
 
   

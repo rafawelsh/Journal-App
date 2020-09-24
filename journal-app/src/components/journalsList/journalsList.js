@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import './journalsList.css';
 import JournalEntry from '../journalEntry/journalEntry';
+import JournalForm from '../journalForm/jounalForm';
+
 import axios from 'axios';
 
 
@@ -33,20 +35,19 @@ export default function JournalsList() {
     }
 
     return (
-                <div>
-                    
-                    <ul>
-                    {journals.map(journal => (
-                        <li key={journal.id}>
-                        <JournalEntry 
-                            journal={journal}
-                            deleteJournal={deleteJounal}
-                        />
-                        </li>
-                    ))}
-                    </ul>
-                </div>
-                
-          
+            <div>
+                <JournalForm getJournals={getJournals}/>
+                <ul>
+                {journals.map(journal => (
+                    <li key={journal.id}>
+                    <JournalEntry 
+                        journal={journal}
+                        deleteJournal={deleteJounal}
+                        getJournals={getJournals}
+                    />
+                    </li>
+                ))}
+                </ul>
+            </div>
     );
 };
