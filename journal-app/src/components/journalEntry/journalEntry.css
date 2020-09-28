@@ -1,3 +1,17 @@
 .ui.card>.extra, .ui.cards>.card>.extra {
     background-color: #F7F7F7 !important;
 }
+
+.ui.card.editing {
+    width: 100%;
+}
+
+.ui.card.editing .content > *{
+    width: 100%;
+}
+
+.ui.card.editing .content input, textarea {
+    width: 100%;
+    border: none;
+    background-color: #F7F7F7;
+}

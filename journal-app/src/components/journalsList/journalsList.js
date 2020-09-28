@@ -13,8 +13,8 @@ export default function JournalsList() {
         getJournals()
     }, []);
     
-    async function getJournals() {
-        let data = await axios.get('/api/journals')
+    const getJournals = () => {
+        axios.get('/api/journals')
             .then(res => {
                 console.log(res.data.journals)
                 setJournals(res.data.journals)
@@ -24,9 +24,8 @@ export default function JournalsList() {
             })
     }
 
-    async function deleteJounal (e, journal) {
-        console.log(`DELETING: ${journal.title}`)
-        let data = axios.delete(`/api/journals/${journal.id}`)
+    const deleteJounal = (e, journal) => {
+        axios.delete(`/api/journals/${journal.id}`)
             .then(({data}) => data)
             .catch((error) => {
                 throw error.response.data

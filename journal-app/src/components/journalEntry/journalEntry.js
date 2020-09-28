@@ -17,8 +17,6 @@ export default function JournalEntry({ journal, deleteJournal, getJournals}) {
     };
 
     const onClickSave = (e, journal) => {
-        console.log('GOING TO JournalEntry')
-        console.log(`ID IS :${journal.id}`)
         e.preventDefault()
         axios.put(`/api/journals/${journal.id}`, formSubmission)
             .then(res => {
@@ -33,8 +31,6 @@ export default function JournalEntry({ journal, deleteJournal, getJournals}) {
     }
 
     const onClickEdit = (e, journal) => {
-        console.log('GOING TO EDITS')
-        console.log(`BUTTON WORKS: ${journal.id}`)
         setIsEditing(!isEditing)
     }
 
@@ -42,7 +38,7 @@ export default function JournalEntry({ journal, deleteJournal, getJournals}) {
     return (
         <div>
             { isEditing ? (
-                    <Card key={journal.id}>
+                    <Card key={journal.id} className="editing">
                     <Card.Content>
                         <Card.Header>
                                 <input type="text" name="title" value={formSubmission.title} onChange={handleChange} required />
