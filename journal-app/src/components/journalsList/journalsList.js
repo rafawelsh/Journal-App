@@ -16,7 +16,6 @@ export default function JournalsList() {
     const getJournals = () => {
         axios.get('/api/journals')
             .then(res => {
-                console.log(res.data.journals)
                 setJournals(res.data.journals)
             })
             .catch(err => {

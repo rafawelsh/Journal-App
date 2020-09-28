@@ -21,7 +21,6 @@ export default function JournalEntry({ journal, deleteJournal, getJournals}) {
         axios.put(`/api/journals/${journal.id}`, formSubmission)
             .then(res => {
                 setFormSubmission(res.data)
-                console.log(res);
             })
             .catch(err => {
                 console.log(err.response)

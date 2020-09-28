@@ -20,7 +20,6 @@ export default function JournalForm({getJournals}) {
         axios.post('/api/journals', formSubmission)
             .then(res => {
                 setFormSubmission(res.data)
-                console.log(res);
                 setFormSubmission({
                     title: '',
                     body: ''
