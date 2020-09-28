@@ -14,9 +14,7 @@ export default function JournalForm({getJournals}) {
         setFormSubmission({...formSubmission, [event.target.name]: event.target.value})
     };
 
-    const handleSubmit = (e) => {
-        console.log(formSubmission)
-       
+    const handleSubmit = (e) => {       
         axios.post('/api/journals', formSubmission)
             .then(res => {
                 setFormSubmission(res.data)
