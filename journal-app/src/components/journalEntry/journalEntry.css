@@ -12,6 +12,7 @@
 
 .ui.card.editing .content input, textarea {
     width: 100%;
+    height: 100%;
     border: none;
     background-color: #F7F7F7;
 }
