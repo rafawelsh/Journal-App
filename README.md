@@ -53,6 +53,8 @@ The journal is able to store the entry of the user as an unique journal entry. E
 # Action Items Required
 
 * Use authenticated user to create personal account
+* Create routes corresponding to the user information fron Auth0
+
 
 
 
